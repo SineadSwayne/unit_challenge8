@@ -25,23 +25,29 @@
                         <button type="button" class="btn btn-default" onclick="storePlayerChoice(4)">Lizard</button>
                     </div>
         <p></p>
-        <input type="button" onclick="displayGameResult('result'), displayScoreBoard('wins', 'losses', 'ties')" value="Play" class="btn btn-primary">
+        <input type="button" onclick="displayGameResult('result'), displayScoreBoard('wins', 'losses', 'ties'), displayMatchScore('matchWins', 'matchLosses')" value="Play" class="btn btn-primary">
         <p></p>
         <div id="result"></div>
         <div id="scoreboard">
         <table class="table">
             <tr>
-                <td>Wins:</td><td>Losses:</td><td>Ties:</td><td>Rounds:</td>
+                <td>Wins:</td>
+                <td>Losses:</td>
+                <td>Ties:</td>
             </tr>
             <tr>
-                <td id="wins">0</td><td id="losses">0</td><td id="ties">0</td><td id="Matches">0</td>
+                <td id="wins">0</td>
+                <td id="losses">0</td>
+                <td id="ties">0</td>
             </tr>
+            <tr>
 
-            <tr>
-                <td>My Match:</td><td>Computer Match:</td>
+                <td>Match Wins:</td>
+                <td>Match Losses:</td>
             </tr>
             <tr>
-                <td id="wins">0</td><td id="losses">0</td>
+                <td id="matchWins">0</td>
+                <td id="matchLosses">0</td>
         </table>
         </div>
     </div>

@@ -1,10 +1,7 @@
 // This is the varaible that stores the score.
 // score[0] = wins, score[1] = ties, score[2] = losses
-var score = [0,0,0];
-var previous score [0, 0, 0];
-
-var matchcount = 1;
-var matches = [0, 0, 0];
+var score = [0, 0, 0];
+var match = [0, 0]
 // The variables store the current player's and computer's choices
 // 0 = Rock, 1 = Paper, 2 = Scissors
 var playerChoice;
@@ -67,16 +64,32 @@ function displayScoreBoard(winsId, lossesId, tiesId){
     document.getElementById(winsId).innerHTML = score[0];
     document.getElementById(lossesId).innerHTML = score[2];
     document.getElementById(tiesId).innerHTML = score[1];
+}
 
-    document.getElementById(matchesWonId).innerHTML = matches[0];
-    document.getElementById(matchesLossesId).innerHTML = matches[2];
-    document.getElementById(matchesTiesId).innerHTML = matches[1];
+function displayMatchScore(matchWinsId, matchLossesId){
+    document.getElementById(matchWinsId).innerHTML = match[0];
+    document.getElementById(matchLossesId).innerHTML = match[1];
 }
 
 function updateScore(val){
     ++score[val];
     console.log("The score is now " + score);
+    updateMatchScore();
 }
+
+function updateMatchScore(val) {
+    if (score[0] == 2) {
+        ++match[0];
+        score = [0, 0, 0];
+         console.log("The match score is now " + match);
+    }
+    else if (score[2] ==2) {
+     ++match[1];
+    score = [0, 0, 0];
+    console.log("The match score is now " + match);
+    }
+}
+
 
 function displayGameResult(resultId){
     // Define an array of text labels for the choices 0, 1, 2;
@@ -94,7 +107,7 @@ function displayGameResult(resultId){
     } else if (result == -1) {
         updateScore(2);
         // Display that it was a loss
-        document.getElementById(resultId).innerHTML = message + "YOU LOOSE! ";
+        document.getElementById(resultId).innerHTML = message + "YOU LOSE! ";
         document.getElementById(resultId).className = "alert alert-danger";
     } else {
         // Display that it was a tie
@@ -103,6 +116,7 @@ function displayGameResult(resultId){
         document.getElementById(resultId).className = "alert alert-info";
     }
 }
+
 
 function storePlayerChoice(choice) {
     playerChoice = choice;
@@ -114,10 +128,4 @@ function storeComputerChoice() {
     // Generate computer's random choice
     computerChoice = Math.floor(Math.random()*5);
     console.log("Computer choice = " + computerChoice);
-}
-
-function displaymatches() {
-  // Display how many matches have been one by each person
-
-
 }
