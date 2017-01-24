@@ -90,7 +90,6 @@ function updateMatchScore(val) {
     }
 }
 
-
 function displayGameResult(resultId){
     // Define an array of text labels for the choices 0, 1, 2;
     var choices = ["Rock", "Paper", "Scissors", "Spock", "Lizard"];
